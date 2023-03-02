@@ -19,6 +19,11 @@ model User {
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
 
+  posts Post[]
+  comments Comment[]
+  likes Like[]
+  followers Follower[]
+  following Following[]
 }
 
 model Post {
@@ -27,7 +32,9 @@ model Post {
   imageURL String?
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
-
+  
+  user User @relation(fields: [userId], references: [id])
+  userId Int
 }
 
 model Comment {
@@ -36,6 +43,8 @@ model Comment {
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
 
+  user User @relation(fields: [userId], references: [id])
+  userId Int
 }
 
 model Like {
@@ -43,14 +52,20 @@ model Like {
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
 
+  user User @relation(fields: [userId], references: [id])
+  userId Int
 }
 
 model Follower {
   id Int @id @default(autoincrement())
 
+  user User @relation(fields: [userId], references: [id])
+  userId Int
 }
 
 model Following {
   id Int @id @default(autoincrement())
-  
+
+  user User @relation(fields: [userId], references: [id])
+  userId Int
 }
