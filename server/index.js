@@ -11,3 +11,20 @@ const prisma = new PrismaClient();
 
 // instanciando o express
 const app = express();
+
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(cors());
+app.use(morgan('dev'));
+
+app.get('/', (res, req) => {
+    res.send('Hello World!')
+})
+
+// rotas aqui
+
+const port =  process.env.PORT || 3002;
+
+app.listen(port, () => {
+    console.log('Prisma API server listening on port 3002');
+});
