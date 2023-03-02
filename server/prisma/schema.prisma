@@ -27,5 +27,15 @@ model Post {
   imageURL String?
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
-  
+
 }
+
+model Comment {
+  id Int @id @default(autoincrement())
+  text String
+  createAt DateTime @default(now())
+  uptadeAt DateTime @updatedAt
+
+}
+
+
