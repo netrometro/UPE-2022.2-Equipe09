@@ -38,4 +38,9 @@ model Comment {
 
 }
 
-
+model Like {
+  id Int @id @default(autoincrement())
+  createAt DateTime @default(now())
+  uptadeAt DateTime @updatedAt
+  
+}
