@@ -18,5 +18,14 @@ model User {
   profileimageURL String?
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
+
+}
+
+model Post {
+  id Int @id @default(autoincrement())
+  caption String?
+  imageURL String?
+  createAt DateTime @default(now())
+  uptadeAt DateTime @updatedAt
   
 }
