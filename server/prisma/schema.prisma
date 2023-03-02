@@ -42,5 +42,15 @@ model Like {
   id Int @id @default(autoincrement())
   createAt DateTime @default(now())
   uptadeAt DateTime @updatedAt
+
+}
+
+model Follower {
+  id Int @id @default(autoincrement())
+
+}
+
+model Following {
+  id Int @id @default(autoincrement())
   
 }
