@@ -60,7 +60,7 @@ const loginUser = async (req, res) => {
         }
 
         const token = jwt.sign({ userId: user.id},  process.env.JWT_SECRET);
-        
+
         res.json({ user, token });
     }   catch(error) {
         console.log(error);
@@ -69,5 +69,6 @@ const loginUser = async (req, res) => {
 };
 
 module.exports =  {
-    registerUser: registerUser
+    registerUser: registerUser,
+    loginUser: loginUser
 };
