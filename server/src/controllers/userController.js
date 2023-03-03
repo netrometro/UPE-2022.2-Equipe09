@@ -41,6 +41,30 @@ const registerUser = async (req, res) => {
     }
 };
 
+// login do usuário
+const loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await prisma.user.findUnique({
+            where: { email }
+        });
+
+        if(user) {
+            return res.json({message: 'usuário logado'});
+        }
+
+        if(!user) {
+            return res.json({message: 'dados incorretos'});
+        }
+
+        const token = jwt.sign({ userId: user.id},  process.env.JWT_SECRET);
+        res.json({ user, token });
+    }   catch(error) {
+        console.log(error);
+        res.status(500).json({ error: 'erro ao efetuar login'});
+    }
+};
+
 module.exports =  {
     registerUser: registerUser
 };
