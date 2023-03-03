@@ -9,3 +9,8 @@ const app =  express()
 
 const {PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
+app.use(cors());
+
