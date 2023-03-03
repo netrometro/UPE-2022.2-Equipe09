@@ -94,6 +94,23 @@ const updateUser = async (req, res) => {
     }
 };
 
+// deletar o usuário
+const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const user = await prisma.user.delete({
+            where: {
+                id: parseInt(id),
+            },
+        });
+        res.json(user);
+    }   catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'Erro ao deletar usuário'});
+    }
+};
+
 module.exports =  {
     registerUser: registerUser,
     loginUser: loginUser,
