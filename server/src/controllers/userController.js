@@ -29,7 +29,7 @@ const registerUser = async (req, res) => {
             }
         });
         if(user) {
-            return res.json({message: 'usuário cirado com sucesso!!!'})
+            return res.json({message: 'usuário criado com sucesso!!!'})
         }
 
         const token = jwt.sign({ userId: user.id}, process.env.JWT_SECRET);
@@ -65,6 +65,32 @@ const loginUser = async (req, res) => {
     }   catch(error) {
         console.log(error);
         res.status(500).json({ error: 'erro ao efetuar login'});
+    }
+};
+
+// atualizar o usuário
+const updateUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { username, email, password } = req.body;
+
+        const hashedPassword = password? await bcrypt.hash(password, 10): undefined;
+
+        const user = await prisma.user.update({
+            where: {
+                id: parseInt(id),
+            },
+            data: {
+                username,
+                email,
+                password: hashedPassword
+            }
+        });
+
+        res.json(user);
+    }   catch(error) {
+        console.error(error);
+        res.status(500).json({ error: 'erro ao atualizar usuário'});
     }
 };
 
