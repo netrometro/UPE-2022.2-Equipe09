@@ -40,3 +40,7 @@ const registerUser = async (req, res) => {
         res.status(500).json({error: 'erro ao registrar usuário'})
     }
 };
+
+module.exports =  {
+    registerUser: registerUser
+};
