@@ -96,5 +96,6 @@ const updateUser = async (req, res) => {
 
 module.exports =  {
     registerUser: registerUser,
-    loginUser: loginUser
+    loginUser: loginUser,
+    updateUser: updateUser
 };
