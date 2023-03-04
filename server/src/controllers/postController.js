@@ -44,6 +44,27 @@ const deletePost = async (req, res) => {
         res.status(500).json({error: 'erro ao deletar postagem'});
     }
 };
+// atualizar a postagem
+const uptadePost = async (req, res) => {
+    const { id } = req.params;
+    const { caption, imageURL } = req.body;
+    try {
+        const post = await prisma.post.update({
+            where: {
+                id: Number(id),
+            },
+            data: {
+                caption,
+                imageURL,
+            },
+        });
+        res.json(post);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'erro ao atualizar postagem'});
+    }
+};
+
 
 
 
