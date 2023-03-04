@@ -64,6 +64,32 @@ const uptadePost = async (req, res) => {
         res.status(500).json({error: 'erro ao atualizar postagem'});
     }
 };
+// aqui vai ser criado apenas uma rota para buscar as postagens pelo o id, um get, algo que faltou no userController.js, o que dificultou um pouco para saber se as coisas estavam funcionando ou não
+const getPostById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await prisma.post.findUnique({
+            where: {
+                id: Number(id),
+            },
+        });
+        if (post) {
+            res.json(post);
+        } else {
+            res.status(404).json({error: 'postagem não foi encontrada pelo sistema'});
+        }
+    }   catch (error) {
+        console.error(error);
+        res.status(500).json({error: "erro ao buscar postagem"});
+    }
+};
+
+module.exports = {
+    createPost,
+    deletePost,
+    uptadePost,
+    getPostById,
+}
 
 
 
