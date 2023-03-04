@@ -29,3 +29,21 @@ const createPost = async (req, res) => {
     }
 };
 
+// deletar a postagem
+const deletePost = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await prisma.post.delete({
+            where: {
+                id: Number(id),
+            },
+        });
+        res.json(post);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'erro ao deletar postagem'});
+    }
+};
+
+
+
