@@ -1,0 +1,37 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors =  require('cors');
+const morgan  = require('morgan');
+const bcrypt  = require('bcrypt');
+const jwt =  require('jsonwebtoken');
+
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient(); // instanciando o prisma
+
+const userRoutes = require('./routes/userRoutes'); // importando as rotas de usuário
+
+const postRoutes = require('./routes/postRoutes'); // importando as rotas das postagem
+
+const commentRoutes = require('./routes/commentRoutes'); // importando as rotas de comentários
+
+const app = express(); // instancioando o express
+
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(cors());
+app.use(morgan('dev'));
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+// rotas aqui
+app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
+app.use('/api/comment', commentRoutes);
+
+const port =  process.env.PORT || 3333;
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
+});
