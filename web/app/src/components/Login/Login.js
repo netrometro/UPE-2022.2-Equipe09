@@ -31,6 +31,11 @@ export function Login() {
                     Email:
                     <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </label>
+                <label>
+                    Senha:
+                    <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                </label>
+                <button type='submit'>Entrar</button>
             </form>
         </div>
     )
