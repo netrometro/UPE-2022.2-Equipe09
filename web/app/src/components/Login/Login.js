@@ -10,7 +10,7 @@ export function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/users/login', {
+            await axios.post('http://localhost:3002/api/users/login', {
                 email,
                 password
             });
