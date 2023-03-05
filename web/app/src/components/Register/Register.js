@@ -41,7 +41,7 @@ export function Register() {
                 </label>
                 <button type='submit'>Registrar</button>
                 <div>
-                    <p>Já tem uma conta?<a href='/register'>Entrar</a></p>
+                    <p>Já tem uma conta?<a href='/'>Entrar</a></p>
                 </div>
             </form>
             <p>{message}</p>

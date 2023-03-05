@@ -36,7 +36,7 @@ export function Login() {
                 </label>
                 <button type='submit'>Entrar</button>
                 <div>
-                    <p>Não tem uma conta?<a href='/'>Cadastrar-se</a></p>
+                    <p>Não tem uma conta? <a href='/register'>Cadastrar-se</a></p>
                 </div>
             </form>
             <p>{message}</p>
