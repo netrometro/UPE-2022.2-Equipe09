@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // rotas aqui
 app.use('/api/users', userRoutes);
 
-const port =  process.env.PORT || 3333;
+const port =  process.env.PORT || 3002;
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
