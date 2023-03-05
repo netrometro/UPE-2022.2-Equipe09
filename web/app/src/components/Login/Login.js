@@ -22,4 +22,16 @@ export function Login() {
             setMessage('Erro ao efetuar login');
         }
     };
+
+    return (
+        <div>
+            <h1>Entrar</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Email:
+                    <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                </label>
+            </form>
+        </div>
+    )
 }
