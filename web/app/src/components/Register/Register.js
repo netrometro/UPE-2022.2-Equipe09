@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-/* import '../../style.css'; */
+import '../../SocialMediaStyle/Style.css';
 
 export function Register() {
     const [username, setUsername] = useState('');
