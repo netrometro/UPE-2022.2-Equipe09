@@ -39,7 +39,12 @@ export function Register() {
                     Senha:
                     <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
+                <button type='submit'>Registrar</button>
+                <div>
+                    <p>Já tem uma conta?<a href='/register'>Entrar</a></p>
+                </div>
             </form>
+            <p>{message}</p>
         </div>
     )
 }
