@@ -22,4 +22,24 @@ export function Register() {
             setMessage('Erro ao cadastrar, tente mais tarde');
         }
     };
+
+    return (
+        <div>
+            <h1>Cadastrar</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Nome:
+                    <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+                </label>
+                <label>
+                    Email:
+                    <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                </label>
+                <label>
+                    Senha:
+                    <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                </label>
+            </form>
+        </div>
+    )
 }
