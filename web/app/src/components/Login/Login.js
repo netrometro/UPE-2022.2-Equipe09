@@ -36,7 +36,11 @@ export function Login() {
                     <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <button type='submit'>Entrar</button>
+                <div>
+                    <p>Não tem uma conta?<a href='/register'>Cadastrar-se</a></p>
+                </div>
             </form>
+            <p>{message}</p>
         </div>
-    )
-}
+    );
+};
