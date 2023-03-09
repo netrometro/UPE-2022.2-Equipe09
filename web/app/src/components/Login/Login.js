@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../SocialMediaStyle/Style.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,6 +18,7 @@ export function Login() {
             });
 
             setMessage('Logado com sucesso');
+            navigate('/home');
         }   catch(error) {
             console.log(error);
             setMessage('Erro ao efetuar login');
