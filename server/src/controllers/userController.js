@@ -28,9 +28,9 @@ const registerUser = async (req, res) => {
                 password: hashedPassword
             }
         });
-        if(user) {
+/*         if(user) {
             return res.json({message: 'usuário criado com sucesso!!!'})
-        }
+        } */
 
         const token = jwt.sign({ userId: user.id}, process.env.JWT_SECRET);
 

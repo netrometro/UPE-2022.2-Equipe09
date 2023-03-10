@@ -1,8 +1,9 @@
 import './styles/global.css'
+import { CreatePost } from './components/CreatePost';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <CreatePost />
   );
 }
 

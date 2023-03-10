@@ -8,9 +8,8 @@ const {
     getPostById
 } = require('../controllers/postController');
 
-router.post('/createpost', createPost);
+router.post('/create', createPost);
 router.delete('/:id', deletePost);
 router.put('/:id', uptadePost);
-router.get('/:id', getPostById);
 
 module.exports = router;
