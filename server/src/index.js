@@ -10,6 +10,8 @@ const prisma = new PrismaClient();
 // aqui vai ser importado as rotas
 const userRoutes = require('./routes/userRoutes'); // rotas do usuário
 
+const searchUsersRoutes = require('./routes/searchUserRoutes'); // rotas para encontrar o usuário
+
 // instanciando o express
 const app = express();
 
@@ -24,6 +26,7 @@ app.get('/', (req, res) => {
 
 // rotas aqui
 app.use('/api/users', userRoutes);
+app.use('/api/users', searchUsersRoutes);
 
 const port =  process.env.PORT || 3002;
 
