@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../SocialMediaStyle/Login&Register.css';
 import { useNavigate } from 'react-router-dom';
-import { login  } from '../Context/Auth';
+import { login  } from '../Auth/Auth';
 
 export function Login() {
     const [email, setEmail] = useState('');
