@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../SocialMediaStyle/Style.css';
+import '../../SocialMediaStyle/Login&Register.css';
 import { useNavigate } from 'react-router-dom';
+import { login  } from '../Context/Auth';
 
 export function Login() {
     const [email, setEmail] = useState('');
@@ -12,11 +13,12 @@ export function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3002/api/users/login', {
+            const response = await axios.post('http://localhost:3002/api/users/login', {
                 email,
                 password
             });
 
+            login(response.data.token);
             setMessage('Logado com sucesso');
             navigate('/home');
         }   catch(error) {
