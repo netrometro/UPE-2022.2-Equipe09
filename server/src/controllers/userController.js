@@ -62,6 +62,31 @@ const loginUser = async (req, res) => {
     }
 };
 
+const updateUser = async (req, res) => {
+    try {
+        const { username, email, password, profileimageURL } = req.body;
+        const { userId } = req;
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const updateUser = await prisma.user.update({
+            where: {
+                id: userId,
+            },
+            data: {
+                username,
+                email,
+                password: hashedPassword,
+                profileimageURL,
+            },
+        });
+
+        res.json({user: updateUser});
+    }   catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'erro ao atualizar pefil'});
+    }
+};
 module.exports =  {
     registerUser: registerUser,
     loginUser: loginUser,
