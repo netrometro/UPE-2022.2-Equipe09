@@ -68,3 +68,23 @@
     color: #666;
     margin-bottom: 16px;
 }
+
+.profile-info button {
+    padding: 8px;
+    background-color: chocolate;
+    color: #15202b;
+    font-size: 12px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
