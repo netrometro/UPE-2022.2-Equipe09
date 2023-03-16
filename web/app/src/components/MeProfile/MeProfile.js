@@ -22,3 +22,24 @@ export function MeProfile() {
     fetchUser();
   }, []);
 
+  return (
+    <div className="profile-container">
+      {user && (
+        <>
+          <div className="profile-background">
+            <img src="https://picsum.photos/800/300" alt="Profile background" />
+          </div>
+          <div className="profile-avatar">
+            <img src={user.profileimageURL || `https://picsum.photos/200/200/?random=${id}`} alt={user.username} />
+          </div>
+          <div className="profile-info">
+          <Link to="/home" className="back-button"><button>Voltar</button></Link>
+            <h2>{user.username}</h2>
+            <Link to="/edit-profile"><button>Editar Perfil</button></Link>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
