@@ -87,7 +87,31 @@ const updateUser = async (req, res) => {
         res.status(500).json({ error: 'erro ao atualizar pefil'});
     }
 };
+
+const getMe = async (req, res) => {
+    try {
+        const { userId } = req;
+
+        const getMe = await prisma.user.findUnique({
+            where: {
+                id: userId,
+            },
+            select: {
+                username: true,
+                profileimageURL: true,
+            },
+        });
+
+        res.json({ user: getMe});
+    }   catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'erro ao obter informações do usuário' });
+    }
+};
+
 module.exports =  {
     registerUser: registerUser,
     loginUser: loginUser,
+    updateUser: updateUser,
+    getMe: getMe,
 };
