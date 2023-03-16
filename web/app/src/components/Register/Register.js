@@ -11,7 +11,7 @@ export function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3002/api/users/register', {
+            await axios.post('http://localhost:3005/api/users/register', {
                 username,
                 email,
                 password
@@ -24,23 +24,23 @@ export function Register() {
     };
 
     return (
-        <div>
+        <div className="custom">
             <h1>Cadastrar</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="register-container" onSubmit={handleSubmit}>
                 <label>
                     Nome:
-                    <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <input className="form-control" type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
                 </label>
                 <label>
                     Email:
-                    <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input className="form-control" type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </label>
                 <label>
                     Senha:
-                    <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input className="form-control" type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
-                <button type='submit'>Registrar</button>
-                <div>
+                <button className="btn btn-primary" type='submit'>Registrar</button>
+                <div className="link-container">
                     <p>Já tem uma conta?<a href='/'>Entrar</a></p>
                 </div>
             </form>
