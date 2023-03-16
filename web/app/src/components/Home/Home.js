@@ -21,7 +21,7 @@ export function Home() {
 
   const handleSearch = async () => {
     try {
-      const res = await axios.get(`http://localhost:3005/api/users/${email}`, {
+      const res = await axios.get(`http://localhost:3002/api/users/${email}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
