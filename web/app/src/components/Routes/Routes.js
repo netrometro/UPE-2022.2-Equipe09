@@ -4,6 +4,7 @@ import { Register } from '../Register/Register';
 import { Home  } from '../Home/Home';
 import { Profile } from '../Profile/Profile';
 import { MeProfile } from "../MeProfile/MeProfile";
+import { UpdateUser } from "../UpdateUser/UpdateUser";
 
 export function AppRouter() {
     return (
@@ -14,6 +15,7 @@ export function AppRouter() {
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/profile/:id" element={<Profile />} />
                 <Route path="/profile/me" element={<MeProfile />} />
+                <Route path="/edit-profile" element={<UpdateUser />} />
             </Routes>
         </Router>
     )
