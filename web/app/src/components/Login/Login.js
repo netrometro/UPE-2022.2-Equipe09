@@ -13,7 +13,7 @@ export function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3002/api/users/login', {
+            const response = await axios.post('http://localhost:3005/api/users/login', {
                 email,
                 password
             });
@@ -28,23 +28,23 @@ export function Login() {
     };
 
     return (
-        <div>
+        <div className="custom">
             <h1>Entrar</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="custom" onSubmit={handleSubmit}>
                 <label>
                     Email:
-                    <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input className="custom" type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </label>
                 <label>
                     Senha:
-                    <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input className="custom" type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
-                <button type='submit'>Entrar</button>
-                <div>
+                <button className="custom" type='submit'>Entrar</button>
+                <div className="custom">
                     <p>Não tem uma conta? <a href='/register'>Cadastrar-se</a></p>
                 </div>
             </form>
-            <p>{message}</p>
+            <p className="custom">{message}</p>
         </div>
     );
 };
