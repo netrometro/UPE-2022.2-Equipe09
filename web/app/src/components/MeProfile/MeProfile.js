@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import "../../SocialMediaStyle/Profile.css";
 
 export function MeProfile() {
   const { id } = useParams();
