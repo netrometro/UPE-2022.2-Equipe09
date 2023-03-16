@@ -1,17 +1,17 @@
   /* Tela de Login e Register */
-  body {
+  .custom {
     font-family: Arial, sans-serif;
     background-color: #15202b;
-    }
-    
-    h1 {
+}
+
+.custom h1 {
     font-size: 28px;
     font-weight: 600;
     text-align: center;
     margin-top: 50px;
-    }
-    
-    form {
+}
+
+.custom form {
     width: 350px;
     margin: 0 auto;
     background-color:  #15202b;
@@ -19,26 +19,26 @@
     padding: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-    }
-    
-    label {
+}
+
+.custom label {
     display: block;
     font-size: 16px;
     margin-bottom: 10px;
-    }
-    
-    input[type='text'],
-    input[type='email'],
-    input[type='password'] {
+}
+
+.custom input[type='text'],
+.custom input[type='email'],
+.custom input[type='password'] {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid  #15202b;
     font-size: 16px;
     margin-bottom: 20px;
-    }
-    
-    button[type='submit'] {
+}
+
+.custom button[type='submit'] {
     background-color: chocolate;
     border: none;
     color:  #15202b;
@@ -46,60 +46,52 @@
     border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;
+    width: 106%;
     margin-bottom: 10px;
-    }
-    
-    button[type='submit']:hover {
+}
+
+.custom button[type='submit']:hover {
     background-color: chocolate;
-    }
-    
-    p {
+}
+
+.custom p {
     text-align: center;
     margin-top: 10px;
-    }
-    
-    a {
+}
+
+.custom a {
     text-decoration: none;
     color: chocolate;
     font-size: 14px;
-    }
-    
-    a:hover {
+}
+
+.custom a:hover {
     text-decoration: underline;
-    }
-    
-    /* Classe para o componente de Login */
-    .login-container {
+}
+
+.custom .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    }
-    
-    .login-container form {
+}
+
+.custom .login-container form {
     margin-top: 50px;
-    }
-    
-    .login-container button[type='submit'] {
+}
+
+.custom .login-container button[type='submit'] {
     margin-top: 20px;
-    }
-    
-    /* Classe para o componente de Registro */
-    .register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-    
-    .register-container form {
+}
+
+.custom .register-container form {
     margin-top: 50px;
-    }
-    
-    .register-container button[type='submit'] {
+}
+
+.custom .register-container button[type='submit'] {
     margin-top: 20px;
-    }
-    
-    /* Classe para o link "Cadastrar-se" ou "Entrar" */
-    .link-container {
+}
+
+.custom .link-container {
     margin-top: 20px;
-    }
+}
+
