@@ -11,3 +11,4 @@ router.post('/post/create', verifyToken, createPost);
 router.get('/post/getAll', verifyToken, getAllPosts);
 
 module.exports = router;
+

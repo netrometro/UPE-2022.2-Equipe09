@@ -3,6 +3,7 @@ import { isAuthenticated, logout } from "../Auth/Auth";
 import { useState } from "react";
 import axios from "axios";
 import '../../SocialMediaStyle/Home.css';
+import { Post } from '../Post/Post';
 
 export function Home() {
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ export function Home() {
           </div>
         )}
         <div className="posts">
-          {/* posts aqui */}
+          <Post />
         </div>
         <div className="sidebar">
           {/* sidebar aqui (se for preciso) */}
