@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import '../../SocialMediaStyle/Home.css';
 import { Post } from '../Post/Post';
+import { Feed } from '../Feed/Feed';
 
 export function Home() {
   const navigate = useNavigate();
@@ -55,13 +56,15 @@ export function Home() {
             <Link to={`/profile/${user.id}`}><h3>{user.username}</h3></Link>
           </div>
         )}
+      </div>
+      <div className="operation">
         <div className="posts">
           <Post />
         </div>
-        <div className="sidebar">
-          {/* sidebar aqui (se for preciso) */}
+        <div className="feed">
+          <Feed />
         </div>
-      </div>
+        </div>
     </div>
   );
 }

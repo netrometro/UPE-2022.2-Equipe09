@@ -195,3 +195,34 @@ body {
   margin-top: 10px;
   cursor: pointer;
 }
+
+
+.operation{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info{
+  display: flex;
+  text-align: center;
+
+  justify-content: center;
+  
+  background-color: #253341;
+  width: 260px;
+  height: max-content;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  padding: 10px;
+  color: orange;
+}
+
+.content{
+  display: flex;
+  
+
+  justify-content: center;
+}
