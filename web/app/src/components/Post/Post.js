@@ -9,7 +9,7 @@ export function Post() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3002/api/post/post/cre", {
+            const response = await axios.post("http://localhost:3002/api/post/post/create", {
                 caption,
                 imageURL
             },
