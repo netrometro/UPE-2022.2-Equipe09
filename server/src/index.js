@@ -12,6 +12,8 @@ const userRoutes = require('./routes/userRoutes'); // rotas do usuário
 
 const searchUsersRoutes = require('./routes/searchUserRoutes'); // rotas para encontrar o usuário
 
+const postRoutes = require('./routes/postRoutes');
+
 // instanciando o express
 const app = express();
 
@@ -27,6 +29,7 @@ app.get('/', (req, res) => {
 // rotas aqui
 app.use('/api/users', userRoutes);
 app.use('/api/users', searchUsersRoutes);
+app.use('/api/post', postRoutes);
 
 const port =  process.env.PORT || 3002;
 
