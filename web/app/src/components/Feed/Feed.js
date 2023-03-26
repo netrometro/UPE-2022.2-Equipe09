@@ -3,13 +3,12 @@ import axios from "axios";
 
 export function Feed() {
   const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3002/api/post/post/getAll",
+          "http://localhost:3002/api/post/getAll",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -25,7 +24,7 @@ export function Feed() {
 
     fetchPosts();
   }, []);
-
+  
   return (
     <div className="feed">
       {posts.map((post) => (
@@ -43,3 +42,4 @@ export function Feed() {
     </div>
   );
 }
+

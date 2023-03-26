@@ -3,7 +3,7 @@ import { isAuthenticated, logout } from "../Auth/Auth";
 import { useState } from "react";
 import axios from "axios";
 import '../../SocialMediaStyle/Home.css';
-import { Post } from '../Post/Post';
+import { Post } from '../CreatePost/CreatePost';
 import { Feed } from '../Feed/Feed';
 
 export function Home() {
