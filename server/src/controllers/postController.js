@@ -103,10 +103,33 @@ const getPostById = async (req, res) => {
   }
 };
 
+const updatePost = async (req, res) => {
+  const postId = req.params.id;
+  const { caption, imageURL } = req.body;
+
+  try {
+    const post = await prisma.post.update({
+      where: {
+        id: parseInt(postId),
+      },
+      data: {
+        caption,
+        imageURL,
+      }
+   });
+   
+   res.status(200).json(post);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'erro ao atualizar postagem'});
+  }
+}
+
 module.exports = {
   createPost,
   getAllPosts,
   getMyPosts,
   getPostById,
+  updatePost
 };
 
