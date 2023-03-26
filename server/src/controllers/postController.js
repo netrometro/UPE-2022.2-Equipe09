@@ -70,9 +70,43 @@ const getMyPosts = async (req, res) => {
   }
 };
 
+const getPostById = async (req, res) => {
+  const postId = req.params.id;
+  
+  try {
+    console.log(postId);
+    const post = await prisma.post.findUnique({
+      where: {
+        id: parseInt(postId),
+      },
+      select: {
+        user: {
+          select: {
+            username: true,
+            email: true,
+          },
+        },
+        caption: true,
+        imageURL: true,
+        createAt: true,
+      },
+    });
+    
+    if (!post) {
+      return res.status(404).json({ error: 'Postagem não encontrada' });
+    }
+    
+    res.status(200).json(post);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Erro ao buscar postagem' });
+  }
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getMyPosts,
+  getPostById,
 };
 
