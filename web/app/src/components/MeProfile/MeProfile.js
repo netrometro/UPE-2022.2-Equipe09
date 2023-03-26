@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "../../SocialMediaStyle/Profile.css";
+import { MePosts } from "../MePosts/MePosts";
 
 export function MeProfile() {
   const { id } = useParams();
@@ -37,6 +38,10 @@ export function MeProfile() {
           <Link to="/home" className="back-button"><button>Voltar</button></Link>
             <h2>{user.username}</h2>
             <Link to="/edit-profile"><button>Editar Perfil</button></Link>
+          </div>
+          <div className="profile-posts">
+            <h2>Meus Posts</h2>
+            <MePosts />
           </div>
         </>
       )}
