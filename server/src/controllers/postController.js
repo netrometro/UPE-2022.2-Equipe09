@@ -42,8 +42,37 @@ const getAllPosts = async (req, res) => {
     }
 };
 
+const getMyPosts = async (req, res) => {
+  const userId = req.userId;
+
+  try {
+    const myPosts = await prisma.post.findMany({
+      where: {
+        userId,
+      },
+      select: {
+        user: {
+          select: {
+            username: true,
+            email: true,
+          },
+        },
+        id: true,
+        caption: true,
+        imageURL: true,
+        createAt: true,
+      },
+    });
+    res.status(200).json(myPosts);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Erro ao buscar posts do usuário' });
+  }
+};
+
 module.exports = {
   createPost,
   getAllPosts,
+  getMyPosts,
 };
 
