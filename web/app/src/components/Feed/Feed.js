@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 export function Feed() {
   const [posts, setPosts] = useState([]);
@@ -27,8 +28,9 @@ export function Feed() {
   
   return (
     <div className="feed">
-      {posts.map((post) => (
-        <div key={post.id} className="post">
+      <div>
+        {posts.map(post => (
+          <div key={post.id} className="post">
           <div className="post-header">
             {/* <img src={post.user.profileimageURL} alt={post.user.username} /> */}
             <h3>{post.user.username}</h3>
@@ -37,8 +39,12 @@ export function Feed() {
             <img src={post.imageURL} alt={post.imageURL} />
             <p>{post.caption}</p>
           </div>
+          <div>
+          <Link to={`/feedpost/${post.id}`}><button>Ver Postagem</button></Link>
+          </div>
         </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
