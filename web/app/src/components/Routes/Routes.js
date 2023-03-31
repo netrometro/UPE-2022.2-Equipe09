@@ -6,6 +6,7 @@ import { Profile } from '../Profile/Profile';
 import { MeProfile } from "../MeProfile/MeProfile";
 import { UpdateUser } from "../UpdateUser/UpdateUser";
 import { SeePost } from "../SeePost/SeePost";
+import { SeeFeedPost } from "../SeeFeedPost/SeeFeedPost";
 
 export function AppRouter() {
     return (
@@ -18,6 +19,7 @@ export function AppRouter() {
                 <Route path="/profile/me" element={<MeProfile />} />
                 <Route path="/edit-profile" element={<UpdateUser />} />
                 <Route path="/post/:id" element={<SeePost />} />
+                <Route path="/feedpost/:id" element={<SeeFeedPost/>}/>
             </Routes>
         </Router>
     )
