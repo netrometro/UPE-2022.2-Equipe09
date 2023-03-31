@@ -33,7 +33,35 @@ const addComment = async (req, res) => {
     }
 };
 
+const getAllComments = async (req, res) => {
+    const postId = req.params.id;
+
+    try {
+        const comments = await prisma.comment.findMany({
+            where: {
+                postId: parseInt(postId),
+            },
+            select: {
+                id: true,
+                text: true,
+                createAt: true,
+                user: {
+                    select: {
+                        id: true,
+                        username: true,
+                    },
+                },
+            },
+        });
+
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(500).json({ error: 'erro ao buscar comentários'});
+    }
+};
+
 module.exports = {
     addComment,
+    getAllComments,
 };
 
