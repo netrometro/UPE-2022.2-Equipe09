@@ -1,3 +1,4 @@
+/* Posts */
 .post {
     background-color: #253341;
     padding: 20px;
@@ -50,5 +51,37 @@
   
   .post button:hover {
     background-color: chocolate;
+  }
+
+  /* Comments */
+  .post-comments {
+    margin-top: 20px;
+    border-top: 1px solid ;
+    padding-top: 20px;
+  }
+
+  .comment {
+    background-color: #15202b;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .add-comment {
+    margin-top: 20px;
+    border-top: 1px solid ;
+    padding-top: 20px;
+    margin-right: 50px;
+
+  }
+
+  .add-comment button {
+    margin-left: 10px;
+  }
+
+  .add-comment input {
+    background-color: #15202b;
+    color: white;
+    width: 800px;
   }
   
