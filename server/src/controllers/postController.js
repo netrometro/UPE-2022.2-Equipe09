@@ -30,6 +30,7 @@ const getAllPosts = async (req, res) => {
                         email: true
                     },
                 },
+                id: true,
                 caption: true,
                 imageURL: true,
                 createAt: true,
@@ -86,6 +87,7 @@ const getPostById = async (req, res) => {
             email: true,
           },
         },
+        id: true,
         caption: true,
         imageURL: true,
         createAt: true,
