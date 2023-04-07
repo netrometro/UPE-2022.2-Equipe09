@@ -2,16 +2,16 @@ import { useNavigate, Link } from "react-router-dom";
 import { isAuthenticated, logout } from "../Auth/Auth";
 import { useState } from "react";
 import axios from "axios";
-import '../../SocialMediaStyle/Home.css';
-import { Post } from '../CreatePost/CreatePost';
-import { Feed } from '../Feed/Feed';
+import "../../SocialMediaStyle/Home.css";
+import { Post } from "../CreatePost/CreatePost";
+import { Feed } from "../Feed/Feed";
 
 export function Home() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
 
-  if(!isAuthenticated()) {
+  if (!isAuthenticated()) {
     navigate("/");
     return null;
   }
@@ -19,11 +19,11 @@ export function Home() {
   const handleLogout = () => {
     logout();
     navigate("/");
-  }
+  };
 
   const handleSearch = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/api/users/${email}`, {
+      const res = await axios.get(`http://localhost:3002/api/users/${username}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -33,7 +33,7 @@ export function Home() {
       console.log(error);
       alert("Usuário não encontrado");
     }
-  }
+  };
 
   return (
     <div className="home">
@@ -42,21 +42,37 @@ export function Home() {
           <h1>Social Midia</h1>
         </div>
         <div className="search">
-          <input type="text" placeholder="Find People" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Find People"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <button onClick={handleSearch}>Search</button>
         </div>
         <div className="menu">
-          <Link to="/profile/me"><button>Profile</button></Link>
+          <Link to="/profile/me">
+            <button>Profile</button>
+          </Link>
           <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
       <div className="content">
         {user && (
           <div className="user-info">
-            <Link to={`/profile/${user.id}`}><h3>{user.username}</h3></Link>
+            <h3>Usuário com esse nome {username}:</h3>
+              <ul>
+                {user.map((user) => (
+                  <li key={user.id}>
+                    <Link to={`/profile/${user.id}`}>
+                      {user.username}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
           </div>
-        )}
-      </div>
+          )}
+        </div>
       <div className="operation">
         <div className="posts">
           <Post />
@@ -64,8 +80,7 @@ export function Home() {
         <div className="feed">
           <Feed />
         </div>
-        </div>
+      </div>
     </div>
   );
 }
-
