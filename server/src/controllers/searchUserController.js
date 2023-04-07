@@ -1,13 +1,13 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const searchUserByEmail = async (req, res) => {
+const searchUserByUsername = async (req, res) => {
     try {
-        const { email } = req.params;
+        const { username } = req.params;
         
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findMany({
             where: { 
-                email: email,
+                username: username,
             },
         });
 
@@ -41,6 +41,6 @@ const getUserInfo = async (req, res) => {
 };
 
 module.exports = {
-    searchUserByEmail,
+    searchUserByUsername,
     getUserInfo,
 }
